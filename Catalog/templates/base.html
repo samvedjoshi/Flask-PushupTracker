@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <title>Workout Application</title>
+
+    <nav class="navbar navbar-light bg-light navbar-expand-lg">
+      <div class="container-fluid">
+  <a class="navbar-brand" href="{{url_for('main.index')}}" style="display:block; font-family:cursive; ">
+    <img src="{{url_for('static',filename='images/icon.svg')}}" alt="" width="80" height="45" class="d-inline-block align-top" style="font-family:Arial, Helvetica, sans-serif;">
+    Push-Ups Tracker
+
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div style="font-size: 1.6rem;" class="collapse navbar-collapse" id="navbarSupportedContent">
+    {% if current_user.is_authenticated %}
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-link active">
+        <a style="font-size: 2rem; font-family: cursive;" type="button" class="btn btn-outline-dark" href="{{ url_for('main.user_workouts') }}">All workouts <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-link active" style="height: 30px;">
+        <a class="glyphicon glyphicon-user btn-outline-dark" type="button" href="{{ url_for('main.profile') }}">Profile</a>
+      </li>
+    </ul>
+    {% endif %}
+   
+      {% if not current_user.is_authenticated %}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a style="font-size: medium;" href="{{ url_for('auth.signup') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="{{ url_for('auth.login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+      
+      {% endif %}
+
+      {% if current_user.is_authenticated %}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('main.new_workout') }}"><span class="glyphicon glyphicon-plus"></span> New Workout</a></li>
+        <li><a href="{{ url_for('auth.logout') }}"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+      </ul>
+
+      {% endif %}
+    
+  </div>
+</div>
+</nav>
+
+  </head>
+  <body>
+  {% block title %} {% endblock %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

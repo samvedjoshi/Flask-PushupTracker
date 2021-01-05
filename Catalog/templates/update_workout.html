@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+
+<div class="col-md-4 col-md-offset-4">
+   <h2>Enter new data here!</h2>
+   <br>
+   <br>
+<form method="POST" action={{ url_for("main.update_workout" ,workout_id=workout.id ) }}>
+    <div class="mb-3">
+      <label for="pushups" class="form-label">Push-Ups</label>
+      <input type="number" class="form-control" placeholder="Enter the number of pushups performed" id="pushups" name="pushups" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text"></div>
+    </div>
+    <div class="mb-3">
+      <label for="comment" class="form-label">Comment</label>
+      <input type="text" class="form-control" id="comment" placeholder="Describe the workout" name="comment">
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>
+
+{% endblock %}

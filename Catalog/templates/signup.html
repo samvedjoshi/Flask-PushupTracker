@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+      {% block title %}
+      
+      <body background="static/images/signupback.jpg" style="background-size: cover;">  
+    <center>
+    <div class="bg-img">
+     
+      <form method="POST" action="/signup" style="display: inline-block;">
+        <h2 style="color: white;"><b>Sign Up</b></h2>
+        <br>
+        <br>
+  <div class="form-group">
+    <label for="name" style="color: white;">Name</label>
+    <input type= "text" class="form-control" id="name" name="name" placeholder="eg. Naresh">
+  </div>
+  <div class="form-group">
+    <label for="email" style="color: white;">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="eg. blake@someone.com">
+    <small id="emailHelp" class="form-text text-muted" style="color: black;">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="password" style="color: white;">Password</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+      </div>
+</center>
+  
+  </body>
+
+      {% endblock %}

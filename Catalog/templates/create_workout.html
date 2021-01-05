@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+      {% block title %}
+    <center>
+      <form method="POST" action="/new" style="display: inline-block;">
+        <h2>Add New Workout</h2>
+         
+
+        <div class="mb-3">
+          <label for="pushup" class="form-label">Push-Ups<Push-Ups></Push-Ups></label>
+          <input type="number" class="form-control" id="pushups" name="pushups" placeholder="Enter the number of pushups done">
+        </div>
+        <div class="mb-3">
+          <label for="comment" class="form-label">Comment</label>
+          <input type="text" class="form-control" id="comment" name="comment" placeholder="Describe today's workout">
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+  </center>
+
+
+
+
+
+      {% endblock %}
